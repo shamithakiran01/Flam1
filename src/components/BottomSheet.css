@@ -1,0 +1,122 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90vh;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.2);
+  will-change: transform;
+  touch-action: none;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(90vh);
+}
+
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.handle {
+  width: 40px;
+  height: 6px;
+  background: #ccc;
+  border-radius: 3px;
+  cursor: grab;
+}
+
+.close-button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  color: #666;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-button:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.close-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #2196f3;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.content:focus {
+  outline: none;
+}
+.content:focus-visible {
+  outline: 2px solid #2196f3;
+  outline-offset: -2px;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+.controls button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #2196f3;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.controls button:hover {
+  background: #1976d2;
+}
+.controls button[aria-pressed="true"] {
+  background: #1565c0;
+}
+@media (max-width: 600px) {
+  .bottom-sheet {
+    height: 95vh;
+  }
+} 
